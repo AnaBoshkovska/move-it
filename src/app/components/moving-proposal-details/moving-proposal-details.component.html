@@ -1,0 +1,75 @@
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6" *ngIf="proposal != null">
+        <h3 class="mb-3">Proposal details</h3>
+        <div *ngIf="hasCreatedOrder" class="alert alert-primary">
+            An order for this proposal has been created.
+        </div>
+        <div class="alert alert-primary mt-3">
+            The estimated price for this moving inquiry is {{proposal.price}} SEK.
+        </div>
+        <div class="row">
+            <div class="col">
+                <strong>First name:</strong> {{proposal.firstName}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <strong>Last name:</strong> {{proposal.lastName}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <strong>Email</strong> {{proposal.email}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <strong>Address from:</strong> {{proposal.addressFrom}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <strong>Address to:</strong> {{proposal.addressTo}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <strong>Distance (km):</strong> {{proposal.distance}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <strong>Living area surface:</strong> {{proposal.livingAreaSurface}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <strong>Attic area surface:</strong> {{proposal.atticAreaSurface}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <strong>Has piano:</strong> {{proposal.hasPiano}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <strong>Needs packing assistance:</strong> {{proposal.needsPackingAssistance}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <strong>Created date:</strong> {{proposal.createDate | date: 'shortDate'}}
+            </div>
+        </div>
+        <div class="row mt-3" style="float: right;">
+            <div class="col">
+                <a routerLink="/proposals" class="btn btn-primary">Back to all proposals</a>
+                <button *ngIf="!hasCreatedOrder" class="btn btn-success" (click)="placeOrder()"
+                    style="margin-left: 10px;">Place order</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-3"></div>
+</div>

@@ -1,0 +1,13 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="user">
+    <span class="navbar-brand text-color">{{title}}</span>
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" [routerLink]="['/home']">Home</a>
+        <a class="nav-item nav-link" [routerLink]="['/proposals']">Proposals</a>
+    </div>
+    <div class="navbar-nav ms-auto">
+        <a class="nav-item nav-link" (click)="logout()">Logout</a>
+    </div>
+</nav>
+<div class='container mt-3'>
+    <router-outlet></router-outlet>
+</div>

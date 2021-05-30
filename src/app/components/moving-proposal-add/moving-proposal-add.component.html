@@ -1,0 +1,68 @@
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-6">
+        <form [formGroup]='proposalForm' (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="addressFrom">Address from</label>
+                <input type="text" formControlName="addressFrom" class="form-control" />
+                <div *ngIf="submitted && form.addressFrom.errors">
+                    <div *ngIf="form.addressFrom.errors?.required" class="text-danger">Address from is required</div>
+                </div>
+            </div>
+            <div class="form-group mt-3">
+                <label for="addressTo">Address to</label>
+                <input type="text" formControlName="addressTo" class="form-control" />
+                <div *ngIf="submitted && form.addressTo.errors">
+                    <span *ngIf="form.addressTo.errors?.required" class="text-danger">Address to is required</span>
+                </div>
+            </div>
+            <div class="form-group mt-3">
+                <label for="distance">Distance</label>
+                <input type="number" formControlName="distance" class="form-control" />
+                <div *ngIf="submitted && form.distance.errors">
+                    <span *ngIf="form.distance.errors?.required" class="text-danger">Distance is required</span>
+                    <span *ngIf="form.distance.errors?.min" class="text-danger">Distance must be greater than 0</span>
+                </div>
+            </div>
+            <div class="form-group mt-3">
+                <label for="livingAreaSurface">Living area surface</label>
+                <input type="number" formControlName="livingAreaSurface" class="form-control" />
+                <div *ngIf="submitted && form.livingAreaSurface.errors">
+                    <span *ngIf="form.livingAreaSurface.errors?.required" class="text-danger">Living area surface is
+                        required
+                    </span>
+                    <span *ngIf="form.livingAreaSurface.errors?.min" class="text-danger">Living area surface must be greater than
+                        0
+                    </span>
+                </div>
+            </div>
+            <div class="form-group mt-3">
+                <label for="atticAreaSurface">Attic area surface</label>
+                <input type="number" formControlName="atticAreaSurface" class="form-control" />
+                <div *ngIf="submitted && form.atticAreaSurface.errors">
+                    <span *ngIf="form.atticAreaSurface.errors?.required" class="text-danger">Attic area surface is
+                        required</span>
+                </div>
+            </div>
+            <div class="form-group mt-3">
+                <label>
+                    <input type="checkbox" formControlName="hasPiano" />
+                    Has Piano
+                </label>
+            </div>
+            <div class="form-group mt-3">
+                <label>
+                    <input type="checkbox" formControlName="needsPackingAssistance" />
+                    Needs packing assistance
+                </label>
+            </div>
+            <div class="form-group mt-3" style="float: right;">
+                <button type="submit" class="btn btn-primary">
+                    Calculate price
+                </button>
+                <a routerLink="/proposals" class="btn btn-danger" style="margin-left: 10px;">Cancel</a>
+            </div>
+        </form>
+    </div>
+    <div class="col-3"></div>
+</div>
